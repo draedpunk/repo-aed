@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int contar_numero(long long int num){
+int contar_numero(int num){
     int cont_tamanho = 0;
     if(num == 0){
         cont_tamanho = 1;
@@ -27,10 +27,9 @@ int contar_numero(long long int num){
 
 int main() {
     // Write C code here
-    long long num;
-    int cont_tamanho = 0;
+    int num;
     printf("Informe um numero inteiro:\n");
-    scanf("%lld", &num);
+    scanf("%d", &num);
 
     printf("O numero de digitos eh: %d\n", contar_numero(num));
     
