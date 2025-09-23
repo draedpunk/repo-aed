@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-typedef struct No {// formato de um nó da lista: ele tem o espaço pro dado e o ponteiro pro PROXIMO nó
+typedef struct No {//formato de um nó da lista: espaço pro dado e ponteiro pro PROXIMO nó
     int dado; 
     struct No* proximo;
 } No;
@@ -19,13 +19,12 @@ int isEmpty(No* cabeca){
 }
 
 No* inserir_final(No* cabeca, int valor){
-    // começo meio parecido com o do inserir no inicio
     No* novo = (No*)malloc(sizeof(No));
     novo->dado = valor;
-    novo->proximo = NULL; // DIFERENÇA COMECA AQUI: já define que será o último nó
+    novo->proximo = NULL; //DIFERENÇA COMECA AQUI: ja define que será o último nó
 
-    if (isEmpty(cabeca)){ //checa se a lista ta vazia
-        return novo; // novo nó vira a cabeça
+    if (isEmpty(cabeca)){
+        return novo; //novo nó vira a cabeça qd a lista for vazia
     }
 
     No* atual = cabeca; // percorre até o último nó, valor temporario

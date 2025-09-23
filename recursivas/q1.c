@@ -9,6 +9,7 @@
 #include <stdlib.h>
 
 int contar_numero(long long int num){
+    int cont_tamanho = 0;
     if(num == 0){
         cont_tamanho = 1;
     } else{
@@ -16,7 +17,7 @@ int contar_numero(long long int num){
             num = -num; // isso aqui transforma pra psotivo
         }
         while (num > 0){
-            num =/ 10; // as casas decimais sao truncadas, ent 12345/10 fica 1234 (.5 vai embora)
+            num /= 10; // as casas decimais sao truncadas, ent 12345/10 fica 1234 (.5 vai embora)
             cont_tamanho++; // e o contador so contando quantas vezes esse loop acontece ate ser 0
         }
     }
