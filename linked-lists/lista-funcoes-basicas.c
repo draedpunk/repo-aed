@@ -31,50 +31,30 @@ No* inserir_final(No* cabeca, int valor){
     while(atual->proximo != NULL){
         atual = atual->proximo;
     }
-
     atual->proximo = novo; // liga o novo nó no final
     return cabeca; // cabeça não mudou
 }
 
 No* remover(No* cabeca, int valor) {
-    if (isEmpty(cabeca)) return NULL; // lista vazia, nada pra remover
-
-    // CASO ESPECIAL: o valor está na cabeça
-    // Lista: [10 -> 20 -> 30 -> 40], remover 10
-    // cabeca->dado == valor, então removemos a cabeça
+    if (isEmpty(cabeca)) return NULL; 
     if (cabeca->dado == valor) {
         No* temp = cabeca;
-        cabeca = cabeca->proximo; // nova cabeça será 20
-        free(temp);               // libera memória do antigo topo
+        cabeca = cabeca->proximo; 
+        free(temp);             
         return cabeca;
     }
-
-    // Para remover um nó que não é a cabeça, precisamos de dois ponteiros:
-    No* anterior = cabeca;        // aponta pro nó antes do que vamos analisar
-    No* atual = cabeca->proximo;  // aponta pro nó que estamos analisando
-    // Exemplo inicial: Lista [10 -> 20 -> 30 -> 40], remover 30
-    // anterior = 10, atual = 20
-
+    No* anterior = cabeca;        
+    No* atual = cabeca->proximo;  
     while (atual != NULL) {
         if (atual->dado == valor) {
-            // Encontrou o valor
-            // Antes: anterior->proximo = atual, atual->proximo = próximo nó
-            // Queremos "pular" o atual:
-            // Lista original: 10 -> 20 -> 30 -> 40
-            // Se removemos 30: 20->proximo = 40
-            anterior->proximo = atual->proximo; // nó anterior agora aponta pro próximo
-            free(atual);                        // libera memória do nó removido
-            return cabeca;                      // retorna cabeça (não mudou)
+            anterior->proximo = atual->proximo; 
+            free(atual);                        
+            return cabeca;                      
         }
-        // Avança os ponteiros
         anterior = atual;
         atual = atual->proximo;
-        // Exemplo: 
-        // 1ª iteração: anterior = 20, atual = 30 (se 30 for o valor, remove)
-        // 2ª iteração: anterior = 30, atual = 40
     }
-
-    return cabeca; // valor não encontrado, lista inalterada
+    return cabeca;
 }
 
 No* removeAt(No* cabeca, int posicao) {

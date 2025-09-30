@@ -1,0 +1,35 @@
+Questão 1 – Estruturas Dinâmicas (Lista Encadeada + Recursividade)
+
+Implemente uma lista simplesmente encadeada que armazene números inteiros. O programa deve conter:
+
+a) Uma função para inserir elementos no final da lista.
+b) Uma função recursiva que percorra a lista e conte quantos elementos pares ela possui.
+c) Uma função que remova todos os elementos ímpares da lista.
+
+Teste seu programa inserindo os números: 10, 3, 7, 8, 12, 15, 20.
+
+Mostre a lista original.
+
+Mostre a quantidade de pares (função recursiva).
+
+Mostre a lista após a remoção dos ímpares.
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+Lista Encadeada Simples + Recursividade
+
+Implemente uma lista simplesmente encadeada que armazene números inteiros.
+
+Crie funções para:
+
+a) Inserir elementos no início da lista.
+
+b) Exibir todos os elementos da lista.
+
+c) Uma função recursiva que calcule a soma de todos os elementos.
+
+Teste o programa inserindo os valores 10, 5, 8, 20, 15.
+
+Mostre a lista original.
+
+Mostre a soma calculada recursivamente.
