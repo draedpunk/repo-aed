@@ -21,11 +21,8 @@ Lista Encadeada Simples + Recursividade
 Implemente uma lista simplesmente encadeada que armazene números inteiros.
 
 Crie funções para:
-
 a) Inserir elementos no início da lista.
-
 b) Exibir todos os elementos da lista.
-
 c) Uma função recursiva que calcule a soma de todos os elementos.
 
 Teste o programa inserindo os valores 10, 5, 8, 20, 15.
