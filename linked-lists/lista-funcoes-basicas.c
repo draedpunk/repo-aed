@@ -58,45 +58,28 @@ No* remover(No* cabeca, int valor) {
 }
 
 No* removeAt(No* cabeca, int posicao) {
-    if (isEmpty(cabeca) || posicao < 0) return cabeca; // lista vazia ou posição inválida
+    if (isEmpty(cabeca) || posicao < 0) return cabeca; 
 
-    // CASO ESPECIAL: remover a cabeça (posição 0)
-    // Exemplo: lista [10 -> 20 -> 30 -> 40], posicao = 0
-    // A cabeça é 10, vamos removê-la
     if (posicao == 0) {
         No* temp = cabeca;
-        cabeca = cabeca->proximo; // nova cabeça = 20
-        free(temp);               // libera memória do antigo nó 10
+        cabeca = cabeca->proximo;
+        free(temp);               
         return cabeca;
     }
-
-    // Para posições maiores que 0, usamos dois ponteiros:
-    No* anterior = cabeca;        // nó antes do que será removido
-    No* atual = cabeca->proximo;  // nó que vamos analisar
-    int i = 1;                    // começamos a contar da posição 1 (já passamos da cabeça)
-    // Exemplo: lista [10 -> 20 -> 30 -> 40], posicao = 2
-    // inicial: anterior = 10, atual = 20, i = 1
-
+    No* anterior = cabeca;        
+    No* atual = cabeca->proximo;  
+    int i = 1;                    
     while (atual != NULL && i < posicao) {
         anterior = atual;
         atual = atual->proximo;
         i++;
-        // Passo 1: anterior = 20, atual = 30, i = 2
-        // Paramos aqui porque i == posicao
     }
 
     if (atual != NULL) {
-        // Encontramos a posição desejada
-        // Antes: anterior->proximo = atual, atual->proximo = próximo nó
-        // Queremos "pular" o atual
-        // Exemplo: remover posição 2 (30)
-        // Antes: 10 -> 20 -> 30 -> 40
-        // Depois: 10 -> 20 -> 40
-        anterior->proximo = atual->proximo; // nó anterior aponta pro próximo
-        free(atual);                        // libera memória do nó removido
+        anterior->proximo = atual->proximo; 
+        free(atual);                       
     }
-
-    return cabeca; // retorna cabeça (lista possivelmente alterada)
+    return cabeca; 
 }
 
 int size(No* cabeca){
