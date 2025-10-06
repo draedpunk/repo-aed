@@ -38,7 +38,7 @@ void pre_ordem(No* raiz){ // (raiz, esquerda, direita);
     }
 }
 
-// impreme os valores na ordem crescente
+// imprime os valores na ordem crescente
 void em_ordem(No* raiz){ // (esquerda, raiz, direita)
     if(raiz != NULL){
         em_ordem(raiz->esquerda);

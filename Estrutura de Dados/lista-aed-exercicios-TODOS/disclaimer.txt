@@ -1,0 +1,4 @@
+Alguns (varios) exercícios contidos nesta pasta são uma copia dos exercicios nas pastas "Structs e funcoes recursivas", "linked-lists",
+"queue" e "stacks".
+
+A pasta atual (lista-aed-exercicios-TODOS) foi a lista final enviada para o classroom do professor.
