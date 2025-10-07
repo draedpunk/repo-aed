@@ -96,7 +96,7 @@ int main(){
 
     em_ordem(raiz); // output -> 20 30 40 50 60 70 80
 
-    printf("Remocao do 20:\n");
+    printf("\n\nRemocao do 20:\n");
     raiz = remover(raiz, 20);
     em_ordem(raiz);
     printf("\n");
