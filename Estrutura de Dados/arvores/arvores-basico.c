@@ -29,6 +29,44 @@ No* inserir(No* raiz, int valor){ // inserindos os nos conforme a regra
     return raiz;
 }
 
+No* encontrar_minimo(struct No* no) {
+    // O menor valor está na extrema esquerda
+    while (no->esquerda != NULL)
+    no = no->esquerda;
+    return no;
+}
+
+No* remover(struct No* raiz, int valor) {
+    if (raiz == NULL) return raiz; // Caso base: árvore vazia
+
+    // Se o valor for menor, busca na sub-árvore esquerda
+    if (valor < raiz->dado) raiz->esquerda = remover(raiz->esquerda, valor);
+    // Se o valor for maior, busca na sub-árvore direita
+    else if (valor > raiz->dado) raiz->direita = remover(raiz->direita, valor);
+    else {
+        if (raiz->esquerda == NULL && raiz->direita == NULL) { // Caso 1: Nó sem filhos
+            free(raiz);
+            return NULL;
+        } else if (raiz->esquerda == NULL) { // Caso 2: Nó com um filho
+            struct No* temp = raiz->direita;
+            free(raiz);
+            return temp;
+        } else if (raiz->direita == NULL) { // ainda caso 2
+            struct No* temp = raiz->esquerda;
+            free(raiz);
+            return temp;
+        }
+        // Caso 3: Nó com DOIS filhos
+        // Encontra o sucessor
+        No* temp = encontrar_minimo(raiz->direita);
+        // Substitui o valor
+        raiz->dado = temp->dado;
+        // Remove o sucessor
+        raiz->direita = remover(raiz->direita, temp->dado);
+    }
+        // Retorna a raiz atualizada
+        return raiz;
+}
 
 void pre_ordem(No* raiz){ // (raiz, esquerda, direita);
     if(raiz != NULL){
@@ -57,12 +95,12 @@ void pos_ordem(No* raiz){ // (esquerda, direita, raiz)
 
 int main(){
     No* raiz = NULL;
-    raiz = inserir(raiz, 30);
-    raiz = inserir(raiz, 70);
+    raiz = inserir(raiz, 15);
     raiz = inserir(raiz, 10);
-    raiz = inserir(raiz, 5);
-    raiz = inserir(raiz, 69);
-    raiz = inserir(raiz, 80);
+    raiz = inserir(raiz, 50);
+    raiz = inserir(raiz, 20);
+    // raiz = inserir(raiz, 69);
+    // raiz = inserir(raiz, 80);
 
     printf("Pre-ordem: ");
     pre_ordem(raiz);
